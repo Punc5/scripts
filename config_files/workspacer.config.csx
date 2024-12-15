@@ -47,7 +47,7 @@ Action<IConfigContext> doConfig = (context) =>
         LeftWidgets = () => new IBarWidget[]
         {
             new WorkspaceWidget(),
-            new TextWidget("                        "),
+            new TextWidget("¦"),
             new TitleWidget()
             {
                 IsShortTitle = true,
@@ -57,7 +57,6 @@ Action<IConfigContext> doConfig = (context) =>
         // Right Widgets
         RightWidgets = () => new IBarWidget[]
         {
-            new TextWidget("                   "),
             new TextWidget("workspacer"),
             new TimeWidget(1000, "| HH:mm:ss ¦ dd-MM-yyyy |"),
             new ActiveLayoutWidget(),
@@ -80,7 +79,7 @@ Action<IConfigContext> doConfig = (context) =>
     */
 
     // Workspaces
-    context.WorkspaceContainer.CreateWorkspaces("Main", "Browsers", "Terminal+Code", "Work+School", "Sound", "Chat", "Gaming", "~Other");
+    context.WorkspaceContainer.CreateWorkspaces("Main", "School+Google", "Terminal+Code", "VM", "Browsers", "Sound", "Chat", "Gaming", "~Other");
     context.CanMinimizeWindows = true;
     
     // Default layouts
@@ -97,23 +96,29 @@ Action<IConfigContext> doConfig = (context) =>
     (string, ILayoutEngine[])[] workspaces =
     {
         ("Main", defaultLayouts()),
+        ("School+Google", defaultLayouts()),
+        ("Terminal+Code", defaultLayouts()),
+        ("VM", defaultLayouts()),
         ("Browsers", defaultLayouts()),
-        ("Code", defaultLayouts()),
-        ("Work", defaultLayouts()),
         ("Sound", defaultLayouts()),
         ("Chat", defaultLayouts()),
         ("Gaming", defaultLayouts()),
-        ("Other", defaultLayouts()),
+        ("~Other", defaultLayouts()),
     };
 
     // Routes
-    context.WindowRouter.RouteProcessName("chrome", "Browsers");
+    context.WindowRouter.RouteProcessName("chrome", "School+Google");
+
     context.WindowRouter.RouteProcessName("vivaldi", "Browsers");
     context.WindowRouter.RouteProcessName("brave", "Browsers");
     context.WindowRouter.RouteProcessName("Tor", "Browsers");
 
     context.WindowRouter.RouteProcessName("WindowsTerminal", "Terminal+Code");
     context.WindowRouter.RouteProcessName("VSCodium", "Terminal+Code");
+    context.WindowRouter.RouteProcessName("GitHubDesktop", "Terminal+Code");
+
+    context.WindowRouter.RouteProcessName("vmware", "VM");
+    context.WindowRouter.RouteProcessName("vmplayer", "VM");
 
     context.WindowRouter.RouteProcessName("SteelSeries", "Sound");
     context.WindowRouter.RouteProcessName("SteelSeriesGGClient", "Sound");
