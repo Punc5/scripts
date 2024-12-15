@@ -79,7 +79,7 @@ Action<IConfigContext> doConfig = (context) =>
     */
 
     // Workspaces
-    context.WorkspaceContainer.CreateWorkspaces("Main", "School+Google", "Terminal+Code", "VM", "Browsers", "Sound", "Chat", "Gaming", "~Other");
+    context.WorkspaceContainer.CreateWorkspaces("Main", "Browsers", "School+Google", "Code+3D", "Terminal", "VM", "Security+Network", "Sound", "Gaming", "Chat", "~Other");
     context.CanMinimizeWindows = true;
     
     // Default layouts
@@ -96,13 +96,15 @@ Action<IConfigContext> doConfig = (context) =>
     (string, ILayoutEngine[])[] workspaces =
     {
         ("Main", defaultLayouts()),
-        ("School+Google", defaultLayouts()),
-        ("Terminal+Code", defaultLayouts()),
-        ("VM", defaultLayouts()),
         ("Browsers", defaultLayouts()),
+        ("School+Google", defaultLayouts()),
+        ("Code+3D", defaultLayouts()),
+        ("Terminal", defaultLayouts()),
+        ("VM", defaultLayouts()),
+        ("Security+Network", defaultLayouts()),
         ("Sound", defaultLayouts()),
-        ("Chat", defaultLayouts()),
         ("Gaming", defaultLayouts()),
+        ("Chat", defaultLayouts()),
         ("~Other", defaultLayouts()),
     };
 
@@ -113,9 +115,21 @@ Action<IConfigContext> doConfig = (context) =>
     context.WindowRouter.RouteProcessName("brave", "Browsers");
     context.WindowRouter.RouteProcessName("Tor", "Browsers");
 
-    context.WindowRouter.RouteProcessName("WindowsTerminal", "Terminal+Code");
-    context.WindowRouter.RouteProcessName("VSCodium", "Terminal+Code");
-    context.WindowRouter.RouteProcessName("GitHubDesktop", "Terminal+Code");
+    context.WindowRouter.RouteProcessName("Malwarebytes", "Security+Network");
+    context.WindowRouter.RouteProcessName("Windows Security", "Security+Network");
+    context.WindowRouter.RouteProcessName("Wireshark", "Security+Network");
+    context.WindowRouter.RouteProcessName("NextDNS", "Security+Network");
+
+    context.WindowRouter.RouteProcessName("VSCodium", "Code+3D");
+    context.WindowRouter.RouteProcessName("devenv", "Code+3D");
+    context.WindowRouter.RouteProcessName("git-bash", "Code+3D");
+    context.WindowRouter.RouteProcessName("MINGW64:/c/Users/kacpe", "Code+3D");
+    context.WindowRouter.RouteProcessName("GitHubDesktop", "Code+3D");
+    context.WindowRouter.RouteProcessName("Unity Hub", "Code+3D");
+    context.WindowRouter.RouteProcessName("Unity", "Code+3D");
+    context.WindowRouter.RouteProcessName("blender", "Code+3D");
+
+    context.WindowRouter.RouteProcessName("WindowsTerminal", "Terminal");
 
     context.WindowRouter.RouteProcessName("vmware", "VM");
     context.WindowRouter.RouteProcessName("vmplayer", "VM");
