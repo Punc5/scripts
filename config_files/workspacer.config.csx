@@ -36,7 +36,7 @@ Action<IConfigContext> doConfig = (context) =>
     var gapPlugin = context.AddGap(new GapPluginConfig() { InnerGap = gap, OuterGap = gap / 2, Delta = gap / 2 });
 
     // Bar
-    context.AddBar(new BarPluginConfig()
+     context.AddBar(new BarPluginConfig()
     {
         FontSize = fontSize,
         BarHeight = barHeight,
@@ -79,7 +79,7 @@ Action<IConfigContext> doConfig = (context) =>
     */
 
     // Workspaces
-    context.WorkspaceContainer.CreateWorkspaces("Main", "Browsers", "School+Google", "Code+3D", "Terminal", "VM", "Security+Network", "Sound", "Gaming", "Chat", "~Other");
+    context.WorkspaceContainer.CreateWorkspaces("Main", "Browsers", "School+Google", "Code+3D", "Terminal+Write", "VM", "Security+Network", "Sound", "Gaming+Chat");
     context.CanMinimizeWindows = true;
     
     // Default layouts
@@ -99,13 +99,11 @@ Action<IConfigContext> doConfig = (context) =>
         ("Browsers", defaultLayouts()),
         ("School+Google", defaultLayouts()),
         ("Code+3D", defaultLayouts()),
-        ("Terminal", defaultLayouts()),
+        ("Terminal+Write", defaultLayouts()),
         ("VM", defaultLayouts()),
         ("Security+Network", defaultLayouts()),
         ("Sound", defaultLayouts()),
-        ("Gaming", defaultLayouts()),
-        ("Chat", defaultLayouts()),
-        ("~Other", defaultLayouts()),
+        ("Gaming+Chat", defaultLayouts()),
     };
 
     // Routes
@@ -122,14 +120,16 @@ Action<IConfigContext> doConfig = (context) =>
 
     context.WindowRouter.RouteProcessName("VSCodium", "Code+3D");
     context.WindowRouter.RouteProcessName("devenv", "Code+3D");
-    context.WindowRouter.RouteProcessName("git-bash", "Code+3D");
-    context.WindowRouter.RouteProcessName("MINGW64:/c/Users/kacpe", "Code+3D");
+    // context.WindowRouter.RouteProcessName("git-bash", "Code+3D");
+    // context.WindowRouter.RouteProcessName("MINGW64:/c/Users/kacpe", "Code+3D");
     context.WindowRouter.RouteProcessName("GitHubDesktop", "Code+3D");
     context.WindowRouter.RouteProcessName("Unity Hub", "Code+3D");
     context.WindowRouter.RouteProcessName("Unity", "Code+3D");
     context.WindowRouter.RouteProcessName("blender", "Code+3D");
 
-    context.WindowRouter.RouteProcessName("WindowsTerminal", "Terminal");
+    context.WindowRouter.RouteProcessName("WindowsTerminal", "Terminal+Write");
+    context.WindowRouter.RouteProcessName("soffice.bin", "Terminal+Write");
+    context.WindowRouter.RouteProcessName("soffice.exe", "Terminal+Write");
 
     context.WindowRouter.RouteProcessName("vmware", "VM");
     context.WindowRouter.RouteProcessName("vmplayer", "VM");
@@ -138,13 +138,12 @@ Action<IConfigContext> doConfig = (context) =>
     context.WindowRouter.RouteProcessName("SteelSeriesGGClient", "Sound");
     context.WindowRouter.RouteProcessName("Spotify", "Sound");
 
-    context.WindowRouter.RouteProcessName("Discord", "Chat");
-    context.WindowRouter.RouteProcessName("Messenger", "Chat");
-    context.WindowRouter.RouteProcessName("ts3client_win64", "Chat");
-    context.WindowRouter.RouteProcessName("Slack", "Chat");
-
-    context.WindowRouter.RouteProcessName("steamwebhelper", "Gaming");
-    context.WindowRouter.RouteProcessName("steam", "Gaming");
+    context.WindowRouter.RouteProcessName("steamwebhelper", "Gaming+Chat");
+    context.WindowRouter.RouteProcessName("steam", "Gaming+Chat");
+    context.WindowRouter.RouteProcessName("Discord", "Gaming+Chat");
+    context.WindowRouter.RouteProcessName("Messenger", "Gaming+Chat");
+    context.WindowRouter.RouteProcessName("ts3client_win64", "Gaming+Chat");
+    context.WindowRouter.RouteProcessName("Slack", "Gaming+Chat");
 
     // Filters
     context.WindowRouter.AddFilter((window) => !window.Title.Contains("cs2"));
