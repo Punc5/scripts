@@ -124,8 +124,8 @@ Action<IConfigContext> doConfig = (context) =>
     context.WindowRouter.RouteProcessName("soffice.bin", "Projects");
     context.WindowRouter.RouteProcessName("soffice.exe", "Projects");
 
-    context.WindowRouter.RouteProcessName("vmware", "VM");
-    context.WindowRouter.RouteProcessName("vmplayer", "VM");
+    context.WindowRouter.RouteProcessName("vmware", "VMs");
+    context.WindowRouter.RouteProcessName("vmplayer", "VMs");
 
     context.WindowRouter.RouteProcessName("Malwarebytes", "Security+Network");
     context.WindowRouter.RouteProcessName("Windows Security", "Security+Network");
