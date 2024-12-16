@@ -79,7 +79,7 @@ Action<IConfigContext> doConfig = (context) =>
     */
 
     // Workspaces
-    context.WorkspaceContainer.CreateWorkspaces("Main", "Other+Browsers", "School+Google", "Code+3D", "Terminal+Write", "VM", "Security+Network", "Sound", "Gaming+Chat");
+    context.WorkspaceContainer.CreateWorkspaces("Main", "Productivity", "Projects", "VMs", "Security+Network", "Sound", "Gaming+Chat");
     context.CanMinimizeWindows = true;
     
     // Default layouts
@@ -96,44 +96,41 @@ Action<IConfigContext> doConfig = (context) =>
     (string, ILayoutEngine[])[] workspaces =
     {
         ("Main", defaultLayouts()),
-        ("Other+Browsers", defaultLayouts()),
-        ("School+Google", defaultLayouts()),
-        ("Code+3D", defaultLayouts()),
-        ("Terminal+Write", defaultLayouts()),
-        ("VM", defaultLayouts()),
+        ("Productivity", defaultLayouts()),
+        ("Projects", defaultLayouts()),
+        ("VMs", defaultLayouts()),
         ("Security+Network", defaultLayouts()),
         ("Sound", defaultLayouts()),
         ("Gaming+Chat", defaultLayouts()),
     };
 
     // Routes
-    context.WindowRouter.RouteProcessName("chrome", "School+Google");
+    context.WindowRouter.RouteProcessName("chrome", "Productivity");
+    context.WindowRouter.RouteProcessName("vivaldi", "Productivity");
+    context.WindowRouter.RouteProcessName("brave", "Productivity");
+    context.WindowRouter.RouteProcessName("Tor Browser", "Productivity");
+    context.WindowRouter.RouteProcessName("thunderbird", "Productivity");
 
-    context.WindowRouter.RouteProcessName("vivaldi", "Other+Browsers");
-    context.WindowRouter.RouteProcessName("brave", "Other+Browsers");
-    context.WindowRouter.RouteProcessName("Tor", "Other+Browsers");
+    context.WindowRouter.RouteProcessName("VSCodium", "Projects");
+    context.WindowRouter.RouteProcessName("devenv", "Projects");
+    // context.WindowRouter.RouteProcessName("git-bash", "Projects");
+    // context.WindowRouter.RouteProcessName("MINGW64:/c/Users/kacpe", "Projects");
+    context.WindowRouter.RouteProcessName("GitHubDesktop", "Projects");
+    context.WindowRouter.RouteProcessName("Unity Hub", "Projects");
+    context.WindowRouter.RouteProcessName("Unity", "Projects"); 
+    context.WindowRouter.RouteProcessName("blender", "Projects");
+    // context.WindowRouter.RouteProcessName("ChatGPT", "Projects");
+    context.WindowRouter.RouteProcessName("WindowsTerminal", "Projects");
+    context.WindowRouter.RouteProcessName("soffice.bin", "Projects");
+    context.WindowRouter.RouteProcessName("soffice.exe", "Projects");
+
+    context.WindowRouter.RouteProcessName("vmware", "VM");
+    context.WindowRouter.RouteProcessName("vmplayer", "VM");
 
     context.WindowRouter.RouteProcessName("Malwarebytes", "Security+Network");
     context.WindowRouter.RouteProcessName("Windows Security", "Security+Network");
     context.WindowRouter.RouteProcessName("Wireshark", "Security+Network");
     context.WindowRouter.RouteProcessName("NextDNS", "Security+Network");
-
-    context.WindowRouter.RouteProcessName("VSCodium", "Code+3D");
-    context.WindowRouter.RouteProcessName("devenv", "Code+3D");
-    // context.WindowRouter.RouteProcessName("git-bash", "Code+3D");
-    // context.WindowRouter.RouteProcessName("MINGW64:/c/Users/kacpe", "Code+3D");
-    context.WindowRouter.RouteProcessName("GitHubDesktop", "Code+3D");
-    context.WindowRouter.RouteProcessName("Unity Hub", "Code+3D");
-    context.WindowRouter.RouteProcessName("Unity", "Code+3D"); 
-    context.WindowRouter.RouteProcessName("blender", "Code+3D");
-    // context.WindowRouter.RouteProcessName("ChatGPT", "Code+3D");
-
-    context.WindowRouter.RouteProcessName("WindowsTerminal", "Terminal+Write");
-    context.WindowRouter.RouteProcessName("soffice.bin", "Terminal+Write");
-    context.WindowRouter.RouteProcessName("soffice.exe", "Terminal+Write");
-
-    context.WindowRouter.RouteProcessName("vmware", "VM");
-    context.WindowRouter.RouteProcessName("vmplayer", "VM");
 
     context.WindowRouter.RouteProcessName("SteelSeries", "Sound");
     context.WindowRouter.RouteProcessName("SteelSeriesGGClient", "Sound");
