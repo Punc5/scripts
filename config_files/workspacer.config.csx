@@ -79,7 +79,7 @@ Action<IConfigContext> doConfig = (context) =>
     */
 
     // Workspaces
-    context.WorkspaceContainer.CreateWorkspaces("Main", "Browsers", "School+Google", "Code+3D", "Terminal+Write", "VM", "Security+Network", "Sound", "Gaming+Chat");
+    context.WorkspaceContainer.CreateWorkspaces("Main", "Other+Browsers", "School+Google", "Code+3D", "Terminal+Write", "VM", "Security+Network", "Sound", "Gaming+Chat");
     context.CanMinimizeWindows = true;
     
     // Default layouts
@@ -96,7 +96,7 @@ Action<IConfigContext> doConfig = (context) =>
     (string, ILayoutEngine[])[] workspaces =
     {
         ("Main", defaultLayouts()),
-        ("Browsers", defaultLayouts()),
+        ("Other+Browsers", defaultLayouts()),
         ("School+Google", defaultLayouts()),
         ("Code+3D", defaultLayouts()),
         ("Terminal+Write", defaultLayouts()),
@@ -109,9 +109,9 @@ Action<IConfigContext> doConfig = (context) =>
     // Routes
     context.WindowRouter.RouteProcessName("chrome", "School+Google");
 
-    context.WindowRouter.RouteProcessName("vivaldi", "Browsers");
-    context.WindowRouter.RouteProcessName("brave", "Browsers");
-    context.WindowRouter.RouteProcessName("Tor", "Browsers");
+    context.WindowRouter.RouteProcessName("vivaldi", "Other+Browsers");
+    context.WindowRouter.RouteProcessName("brave", "Other+Browsers");
+    context.WindowRouter.RouteProcessName("Tor", "Other+Browsers");
 
     context.WindowRouter.RouteProcessName("Malwarebytes", "Security+Network");
     context.WindowRouter.RouteProcessName("Windows Security", "Security+Network");
@@ -124,8 +124,9 @@ Action<IConfigContext> doConfig = (context) =>
     // context.WindowRouter.RouteProcessName("MINGW64:/c/Users/kacpe", "Code+3D");
     context.WindowRouter.RouteProcessName("GitHubDesktop", "Code+3D");
     context.WindowRouter.RouteProcessName("Unity Hub", "Code+3D");
-    context.WindowRouter.RouteProcessName("Unity", "Code+3D");
+    context.WindowRouter.RouteProcessName("Unity", "Code+3D"); 
     context.WindowRouter.RouteProcessName("blender", "Code+3D");
+    // context.WindowRouter.RouteProcessName("ChatGPT", "Code+3D");
 
     context.WindowRouter.RouteProcessName("WindowsTerminal", "Terminal+Write");
     context.WindowRouter.RouteProcessName("soffice.bin", "Terminal+Write");
