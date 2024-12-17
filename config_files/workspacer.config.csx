@@ -79,7 +79,7 @@ Action<IConfigContext> doConfig = (context) =>
     */
 
     // Workspaces
-    context.WorkspaceContainer.CreateWorkspaces("Main", "Productivity", "Projects", "VMs", "Security+Network", "Sound", "Gaming+Chat");
+    context.WorkspaceContainer.CreateWorkspaces("Main", "Productivity", "Sound", "Projects", "VMs", "Sec+Net", "Play+Talk");
     context.CanMinimizeWindows = true;
     
     // Default layouts
@@ -97,11 +97,11 @@ Action<IConfigContext> doConfig = (context) =>
     {
         ("Main", defaultLayouts()),
         ("Productivity", defaultLayouts()),
+        ("Sound", defaultLayouts()),
         ("Projects", defaultLayouts()),
         ("VMs", defaultLayouts()),
-        ("Security+Network", defaultLayouts()),
-        ("Sound", defaultLayouts()),
-        ("Gaming+Chat", defaultLayouts()),
+        ("Sec+Net", defaultLayouts()),
+        ("Play+Talk", defaultLayouts()),
     };
 
     // Routes
@@ -110,6 +110,10 @@ Action<IConfigContext> doConfig = (context) =>
     context.WindowRouter.RouteProcessName("brave", "Productivity");
     context.WindowRouter.RouteProcessName("Tor Browser", "Productivity");
     context.WindowRouter.RouteProcessName("thunderbird", "Productivity");
+
+    context.WindowRouter.RouteProcessName("SteelSeries", "Sound");
+    context.WindowRouter.RouteProcessName("SteelSeriesGGClient", "Sound");
+    context.WindowRouter.RouteProcessName("Spotify", "Sound");
 
     context.WindowRouter.RouteProcessName("VSCodium", "Projects");
     context.WindowRouter.RouteProcessName("devenv", "Projects");
@@ -127,23 +131,19 @@ Action<IConfigContext> doConfig = (context) =>
     context.WindowRouter.RouteProcessName("vmware", "VMs");
     context.WindowRouter.RouteProcessName("vmplayer", "VMs");
 
-    context.WindowRouter.RouteProcessName("KeePassXC", "Security+Network");
-    context.WindowRouter.RouteProcessName("Bitwarden", "Security+Network");
-    context.WindowRouter.RouteProcessName("Malwarebytes", "Security+Network");
-    context.WindowRouter.RouteProcessName("Windows Security", "Security+Network");
-    context.WindowRouter.RouteProcessName("Wireshark", "Security+Network");
-    context.WindowRouter.RouteProcessName("NextDNS", "Security+Network");
+    context.WindowRouter.RouteProcessName("KeePassXC", "Sec+Net");
+    context.WindowRouter.RouteProcessName("Bitwarden", "Sec+Net");
+    context.WindowRouter.RouteProcessName("Malwarebytes", "Sec+Net");
+    context.WindowRouter.RouteProcessName("Windows Security", "Sec+Net");
+    context.WindowRouter.RouteProcessName("Wireshark", "Sec+Net");
+    context.WindowRouter.RouteProcessName("NextDNS", "Sec+Net");
 
-    context.WindowRouter.RouteProcessName("SteelSeries", "Sound");
-    context.WindowRouter.RouteProcessName("SteelSeriesGGClient", "Sound");
-    context.WindowRouter.RouteProcessName("Spotify", "Sound");
-
-    context.WindowRouter.RouteProcessName("steamwebhelper", "Gaming+Chat");
-    context.WindowRouter.RouteProcessName("steam", "Gaming+Chat");
-    context.WindowRouter.RouteProcessName("Discord", "Gaming+Chat");
-    context.WindowRouter.RouteProcessName("Messenger", "Gaming+Chat");
-    context.WindowRouter.RouteProcessName("ts3client_win64", "Gaming+Chat");
-    context.WindowRouter.RouteProcessName("Slack", "Gaming+Chat");
+    context.WindowRouter.RouteProcessName("steamwebhelper", "Play+Talk");
+    context.WindowRouter.RouteProcessName("steam", "Play+Talk");
+    context.WindowRouter.RouteProcessName("Discord", "Play+Talk");
+    context.WindowRouter.RouteProcessName("Messenger", "Play+Talk");
+    context.WindowRouter.RouteProcessName("ts3client_win64", "Play+Talk");
+    context.WindowRouter.RouteProcessName("Slack", "Play+Talk");
 
     // Filters
     context.WindowRouter.AddFilter((window) => !window.Title.Contains("cs2"));
