@@ -127,6 +127,8 @@ Action<IConfigContext> doConfig = (context) =>
     context.WindowRouter.RouteProcessName("vmware", "VMs");
     context.WindowRouter.RouteProcessName("vmplayer", "VMs");
 
+    context.WindowRouter.RouteProcessName("KeePassXC", "Security+Network");
+    context.WindowRouter.RouteProcessName("Bitwarden", "Security+Network");
     context.WindowRouter.RouteProcessName("Malwarebytes", "Security+Network");
     context.WindowRouter.RouteProcessName("Windows Security", "Security+Network");
     context.WindowRouter.RouteProcessName("Wireshark", "Security+Network");
