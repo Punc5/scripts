@@ -11,8 +11,6 @@ if (-not $global:canConnectToGitHub) {
 # Write-Host "Hello there $($env:USERNAME)! Wanna play a game?" -ForegroundColor Red
 # Write-Host ""
 
-# Sprawdzanie aktualizacji PowerShell w profilu PowerShell
-
 # Function - Check pwsh Updates
 function Check-PwshUpdate {
     Write-Host "Checking for PowerShell updates..." -ForegroundColor Cyan
