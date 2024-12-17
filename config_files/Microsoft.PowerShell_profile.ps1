@@ -122,7 +122,7 @@ function winutildev {
 	irm https://christitus.com/windev | iex
 }
 
-# Edit Profile
+# Edit pwsh Profile & Other
 function ep {
     explorer $PROFILE
 }
@@ -151,4 +151,18 @@ function clipboard {
 
 function setclipboard {
     Set-Clipboard
+}
+
+# Enhanced pwsh Experience
+Set-PSReadLineOption -Colors @{
+    Command = "Yellow"
+    Parameter = "Green"
+    Operator = "#FFB6C1" # LightPink (pastel)
+    Variable = "#DDA0DD" # Plum (pastel)
+    String = "#FFDAB9"  # PeachPuff (pastel)
+    Number = "#B0E0E6"  # PowderBlue (pastel)
+    Type = "#F0E68C"    # Khaki (pastel)
+    Comment = "#D3D3D3" # LightGray (pastel)
+    Keyword = "#8367C7" # Violet (pastel)
+    Error = "Red"
 }
