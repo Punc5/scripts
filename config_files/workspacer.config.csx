@@ -79,7 +79,7 @@ Action<IConfigContext> doConfig = (context) =>
     */
 
     // Workspaces
-    context.WorkspaceContainer.CreateWorkspaces("Main", "Productivity", "Sound", "Projects", "VMs", "Sec+Net", "Play+Talk");
+    context.WorkspaceContainer.CreateWorkspaces("Main", "Sound", "Productivity", "Projects", "VMs", "Sec+Net", "Play+Talk");
     context.CanMinimizeWindows = true;
     
     // Default layouts
@@ -96,8 +96,8 @@ Action<IConfigContext> doConfig = (context) =>
     (string, ILayoutEngine[])[] workspaces =
     {
         ("Main", defaultLayouts()),
-        ("Productivity", defaultLayouts()),
         ("Sound", defaultLayouts()),
+        ("Productivity", defaultLayouts()),
         ("Projects", defaultLayouts()),
         ("VMs", defaultLayouts()),
         ("Sec+Net", defaultLayouts()),
@@ -105,15 +105,15 @@ Action<IConfigContext> doConfig = (context) =>
     };
 
     // Routes
+    context.WindowRouter.RouteProcessName("SteelSeries", "Sound");
+    context.WindowRouter.RouteProcessName("SteelSeriesGGClient", "Sound");
+    context.WindowRouter.RouteProcessName("Spotify", "Sound");
+
     context.WindowRouter.RouteProcessName("chrome", "Productivity");
     context.WindowRouter.RouteProcessName("vivaldi", "Productivity");
     context.WindowRouter.RouteProcessName("brave", "Productivity");
     context.WindowRouter.RouteProcessName("Tor Browser", "Productivity");
     context.WindowRouter.RouteProcessName("thunderbird", "Productivity");
-
-    context.WindowRouter.RouteProcessName("SteelSeries", "Sound");
-    context.WindowRouter.RouteProcessName("SteelSeriesGGClient", "Sound");
-    context.WindowRouter.RouteProcessName("Spotify", "Sound");
 
     context.WindowRouter.RouteProcessName("VSCodium", "Projects");
     context.WindowRouter.RouteProcessName("devenv", "Projects");
